@@ -1,0 +1,219 @@
+:root {
+  --bg: #f4f7f5;
+  --surface: rgba(255, 255, 255, 0.86);
+  --text: #132026;
+  --muted: #4b5c63;
+  --line: #d7e3dd;
+  --primary: #0f766e;
+  --primary-dark: #0a5b55;
+  --accent: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 10% 10%, #d9f4eb 0%, transparent 30%),
+    radial-gradient(circle at 90% 15%, #ffe6c7 0%, transparent 25%),
+    linear-gradient(120deg, #f4f7f5 0%, #eef6f2 100%);
+  overflow-x: hidden;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.orb-1 {
+  width: 260px;
+  height: 260px;
+  left: -80px;
+  top: 20vh;
+  background: rgba(15, 118, 110, 0.2);
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  right: -100px;
+  top: 8vh;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.top-nav {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 1.25rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.logo-placeholder {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), #14b8a6);
+  color: #fff;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
+}
+
+.brand-name {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.nav-cta {
+  text-decoration: none;
+  color: #fff;
+  background: var(--primary);
+  padding: 0.62rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.hero-wrap {
+  display: grid;
+  place-items: center;
+  padding: 3.5rem 1rem 2.5rem;
+}
+
+.hero-card {
+  width: min(940px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: clamp(1.2rem, 2.6vw, 2.4rem);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 42px rgba(20, 35, 33, 0.1);
+  animation: reveal 700ms ease both;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+h1 {
+  margin: 0.6rem 0 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+.subtext {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  max-width: 60ch;
+  font-size: clamp(0.98rem, 1.7vw, 1.12rem);
+}
+
+.button-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.role-btn {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 1rem;
+  font-weight: 800;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-btn:hover {
+  transform: translateY(-2px);
+}
+
+.role-btn.doctor {
+  background: #e6f9f6;
+  color: #0f766e;
+  border-color: #b6ece4;
+}
+
+.role-btn.patient {
+  background: #ecf3ff;
+  color: #2558b4;
+  border-color: #c9dafc;
+}
+
+.role-btn.hospital {
+  background: #fff2df;
+  color: #8a5600;
+  border-color: #f9ddb0;
+}
+
+.role-btn.pharmacy {
+  background: #f2edff;
+  color: #5934a9;
+  border-color: #dbcbff;
+}
+
+.security-note {
+  margin-top: 1.25rem;
+  color: #415059;
+  font-size: 0.92rem;
+}
+
+code {
+  background: #edf2f0;
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .button-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-nav {
+    margin-top: 0.8rem;
+  }
+}
