@@ -7,8 +7,8 @@ export default function LandingPage() {
         <img src="/astra-logo.png" alt="Astra logo" />
       </div>
       <p className="hero-eyebrow">Connected Care Network</p>
-      <h1>Empowering Healthcare with AI</h1>
-      <p className="hero-subtext">Secure workflows for doctors, patients, hospitals, and pharmacies with fast decisions and transparent records.</p>
+      <h1>Coordinated Care for Every Role</h1>
+      <p className="hero-subtext">Astra helps patients, doctors, hospitals, and pharmacies work on one secure platform with clearer handoffs and faster decisions.</p>
       <div className="button-row">
         <Link to="/doctors" className="btn">Doctors</Link>
         <Link to="/patients" className="btn">Patients</Link>
@@ -18,18 +18,18 @@ export default function LandingPage() {
       <div className="hero-grid">
         <article className="hero-chip">
           <p className="hero-chip-title">Unified Records</p>
-          <p className="small">A single timeline view for faster diagnosis and safer handoffs.</p>
+          <p className="small">Shared context across teams for safer transitions of care.</p>
         </article>
         <article className="hero-chip">
-          <p className="hero-chip-title">AI Support</p>
-          <p className="small">Clinical assistance for imaging review and second-opinion summaries.</p>
+          <p className="hero-chip-title">Decision Support</p>
+          <p className="small">Built-in tools to support review workflows and reduce delays.</p>
         </article>
         <article className="hero-chip">
           <p className="hero-chip-title">Secure by Default</p>
-          <p className="small">HTTPS-first delivery, protected sessions, role-based access control.</p>
+          <p className="small">Role-based access, secure sessions, and production-ready controls.</p>
         </article>
       </div>
-      <p className="small">HTTPS is enforced in production and session cookies are secured.</p>
+      <p className="small">Designed for real-world operational use with privacy and reliability in mind.</p>
     </section>
   );
 }

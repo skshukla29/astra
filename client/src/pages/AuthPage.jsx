@@ -34,8 +34,8 @@ export default function AuthPage({ onAuthSuccess }) {
       if (onAuthSuccess) onAuthSuccess(result.user);
       setMessage(
         form.role === "doctor"
-          ? "Signup complete. Enable doctor 2FA in production Firebase MFA settings."
-          : "Signup complete."
+          ? "Account created successfully. Doctor verification is required at login."
+          : "Account created successfully."
       );
       navigate("/dashboard");
     } catch (error) {
@@ -56,7 +56,7 @@ export default function AuthPage({ onAuthSuccess }) {
         doctorOtp: form.doctorOtp || undefined
       });
       if (onAuthSuccess) onAuthSuccess(result.user);
-      setMessage("Login successful. Access token expires in 1 hour.");
+      setMessage("Login successful.");
       navigate("/dashboard");
     } catch (error) {
       setMessage(error.message);
@@ -65,7 +65,7 @@ export default function AuthPage({ onAuthSuccess }) {
 
   return (
     <section className="panel">
-      <h2>Secure Login / Signup</h2>
+      <h2>Account Access</h2>
       <form className="form-grid" onSubmit={onSignup}>
         <label>Name<input name="name" value={form.name} onChange={onInput} required /></label>
         <label>Email<input name="email" type="email" value={form.email} onChange={onInput} required /></label>
@@ -80,7 +80,7 @@ export default function AuthPage({ onAuthSuccess }) {
           </select>
         </label>
         {form.role === "doctor" && (
-          <label>Doctor 2FA Code
+          <label>Doctor Verification Code
             <input name="doctorOtp" value={form.doctorOtp} onChange={onInput} placeholder="6-digit code" />
           </label>
         )}
@@ -90,12 +90,12 @@ export default function AuthPage({ onAuthSuccess }) {
           </label>
         )}
         <div className="button-row">
-          <button className="btn" type="submit">Signup</button>
+          <button className="btn" type="submit">Create Account</button>
           <button className="btn secondary" type="button" onClick={onLogin}>Login</button>
         </div>
       </form>
       {!isFirebaseConfigured && (
-        <p className="small">Firebase env keys are not configured, so prototype is using backend auth only.</p>
+        <p className="small">Firebase is not configured in this environment. Authentication currently runs through backend session APIs.</p>
       )}
       <p className="small">{message}</p>
     </section>

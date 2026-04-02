@@ -28,7 +28,7 @@ export default function TaskBoard() {
     try {
       const updated = await apiPatch(`/api/tasks/${task._id}`, { completed: !task.completed });
       setTasks((prev) => prev.map((item) => (item._id === updated._id ? updated : item)));
-      show(task.completed ? "Task marked pending" : "Task completed!", "success");
+      show(task.completed ? "Task moved back to pending." : "Task marked as complete.", "success");
     } catch (error) {
       show(error.message, "error");
     }
@@ -36,13 +36,13 @@ export default function TaskBoard() {
 
   async function onCreateTask(event) {
     event.preventDefault();
-    const toastId = show("Creating task...", "loading", 0);
+    const toastId = show("Saving task...", "loading", 0);
     try {
       const created = await apiPost("/api/tasks/my", newTask);
       setTasks((prev) => [created, ...prev]);
       setNewTask({ title: "", description: "", priority: "medium" });
       remove(toastId);
-      show("Task added.", "success");
+      show("Task added successfully.", "success");
     } catch (error) {
       remove(toastId);
       show(error.message, "error");
@@ -51,7 +51,7 @@ export default function TaskBoard() {
 
   return (
     <section className="panel">
-      <h3>Assigned Work</h3>
+      <h3>Task Management</h3>
       {loading && <p className="small"><span className="spinner" /> Loading tasks...</p>}
       <form className="form-grid" onSubmit={onCreateTask}>
         <label>
@@ -88,7 +88,7 @@ export default function TaskBoard() {
 
       <div className="cards">
         {!loading && tasks.length === 0 && (
-          <p className="small">📋 No assigned tasks yet. Create one to get started.</p>
+          <p className="small">No tasks available yet. Add one to get started.</p>
         )}
         {tasks.map((task) => (
           <article className={`card priority-${task.priority} ${task.completed ? "completed" : ""}`} key={task._id}>
@@ -100,10 +100,10 @@ export default function TaskBoard() {
                 {task.priority}
               </span>
               <span className="small">·</span>
-              <span className="small">{task.completed ? "✓ Completed" : "⏱ Pending"}</span>
+              <span className="small">{task.completed ? "Completed" : "Pending"}</span>
             </div>
             <button className="btn tertiary" type="button" onClick={() => toggleTask(task)} style={{ marginTop: "0.6rem" }}>
-              {task.completed ? "↺ Reopen" : "✓ Complete"}
+              {task.completed ? "Mark Pending" : "Mark Complete"}
             </button>
           </article>
         ))}

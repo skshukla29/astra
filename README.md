@@ -1,8 +1,8 @@
-# Astra Prototype (Step-by-Step)
+# Astra Healthcare Platform
 
-This repository implements your requested Astra prototype steps with a secure backend, React frontend, and Flask AI demo.
+Astra is a multi-role healthcare web application that connects patients, doctors, hospitals, pharmacies, and administrators on a secure workflow platform.
 
-## Implemented Steps
+## Key Capabilities
 
 1. Landing page UI
 - React landing page with tagline `Empowering Healthcare with AI`
@@ -27,13 +27,13 @@ This repository implements your requested Astra prototype steps with a secure ba
 - Pharmacy registration form
 - Backend validation and encrypted location storage (AES-256-GCM)
 
-5. Hospital connectivity prototype
+5. Hospital connectivity
 - React dashboard with transfer flow and status message
 - Backend JWT-protected endpoint to simulate secure transfer
 
-6. Clinical decision support (AI demo)
+6. Clinical decision support
 - React file upload form
-- Flask endpoint analyzes upload and returns demo prediction
+- Flask endpoint analyzes uploads and returns a diagnostic support result
 - Temporary file storage with auto-delete
 - Basic malware signature check and image integrity verification
 
@@ -44,7 +44,7 @@ This repository implements your requested Astra prototype steps with a secure ba
 - Refresh token in secure HttpOnly cookie
 - Doctor login requires 2FA code (prototype server-side check)
 
-8. Final polish
+8. Product polish
 - Responsive navbar and footer in React
 - HTTPS enforced in production in backend middleware
 - CSRF protection enabled on API routes
@@ -60,7 +60,7 @@ This repository implements your requested Astra prototype steps with a secure ba
 
 ```bash
 npm install
-cp .env.example .env
+# On Windows PowerShell: Copy-Item .env.example .env
 npm run dev
 ```
 
@@ -71,7 +71,7 @@ Backend URL: `http://localhost:5000`
 ```bash
 cd client
 npm install
-cp .env.example .env
+# On Windows PowerShell: Copy-Item .env.example .env
 npm run dev
 ```
 
